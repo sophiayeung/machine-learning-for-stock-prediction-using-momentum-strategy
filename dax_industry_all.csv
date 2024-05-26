@@ -1,0 +1,72 @@
+,Instrument,TRBC Business Sector Name,TRBC Economic Sector Name
+0,1COV.DE,Chemicals,Basic Materials
+1,ADSGn.DE,Cyclical Consumer Products,Consumer Cyclicals
+2,ALTG.DE^H10,Chemicals,Basic Materials
+3,ALVG.DE,Insurance,Financials
+4,AROG.DE^C18,Retailers,Consumer Cyclicals
+5,BASFn.DE,Chemicals,Basic Materials
+6,BAYGn.DE,Pharmaceuticals & Medical Research,Healthcare
+7,BBXG.DE^G08,Renewable Energy,Energy
+8,BEIG.DE,Personal & Household Products & Services,Consumer Non-Cyclicals
+9,BHWG.DE^I98,Banking & Investment Services,Financials
+10,BMWG.DE,Automobiles & Auto Parts,Consumer Cyclicals
+11,CBKG.DE,Banking & Investment Services,Financials
+12,CECG.DE,Retailers,Consumer Cyclicals
+13,CONG.DE,Automobiles & Auto Parts,Consumer Cyclicals
+14,DAIG.DE^L98,,
+15,DAIGa.DE^K98,Automobiles & Auto Parts,Consumer Cyclicals
+16,DB11.DE^D17,Banking & Investment Services,Financials
+17,DB1Gn.DE,Banking & Investment Services,Financials
+18,DB1Gne.DE^B12,Banking & Investment Services,Financials
+19,DBCG.DE^G01,Renewable Energy,Energy
+20,DBKGn.DE,Banking & Investment Services,Financials
+21,DGXG.DE^I06,Chemicals,Basic Materials
+22,DHER.DE,Software & IT Services,Technology
+23,DHLn.DE,Transportation,Industrials
+24,DPBGn.DE^L15,Banking & Investment Services,Financials
+25,DRSDn.DE^G02,Banking & Investment Services,Financials
+26,DTEGn.DE,Telecommunications Services,Technology
+27,DWNG.DE,Real Estate,Real Estate
+28,EONGn.DE,Utilities,Utilities
+29,EPCGn.DE^J09,Technology Equipment,Technology
+30,FMEG.DE,Healthcare Services & Equipment,Healthcare
+31,FREG.DE,Healthcare Services & Equipment,Healthcare
+32,FREG_p.DE^A11,Healthcare Services & Equipment,Healthcare
+33,G1AG.DE,Industrial Goods,Industrials
+34,HEIG.DE,Mineral Resources,Basic Materials
+35,HNKG_p.DE,Chemicals,Basic Materials
+36,HNRGn.DE,Insurance,Financials
+37,HOEG.DE^G05,Pharmaceuticals & Medical Research,Healthcare
+38,HRXG.DE^J09,Investment Holding Companies,Financials
+39,HVMG.DE^I08,Banking & Investment Services,Financials
+40,IFXGn.DE,Technology Equipment,Technology
+41,KFHG.IB^G96,Retailers,Consumer Cyclicals
+42,LHAG.DE,Transportation,Industrials
+43,LIN.DE,Chemicals,Basic Materials
+44,LIN1.DE^J18,Chemicals,Basic Materials
+45,LING.DE^D19,Chemicals,Basic Materials
+46,LXSG.DE,Chemicals,Basic Materials
+47,MANG.DE^I21,Industrial Goods,Industrials
+48,MBGn.DE,Automobiles & Auto Parts,Consumer Cyclicals
+49,MLPG.DE,Banking & Investment Services,Financials
+50,MLPG_p.DE^I01,Banking & Investment Services,Financials
+51,MRCG.DE,Pharmaceuticals & Medical Research,Healthcare
+52,MTXGn.DE,Industrial Goods,Industrials
+53,MUVGn.DE,Insurance,Financials
+54,OSRn.DE^G21,Industrial Goods,Industrials
+55,PSMGn.DE,Cyclical Consumer Services,Consumer Cyclicals
+56,RWEG.DE,Utilities,Utilities
+57,SAPG.DE,Software & IT Services,Technology
+58,SAPG_p.DE^F01,Software & IT Services,Technology
+59,SCHG.DE^I08,Pharmaceuticals & Medical Research,Healthcare
+60,SDFGn.DE,Chemicals,Basic Materials
+61,SIEGn.DE,Industrial Goods,Industrials
+62,SZGG.DE,Mineral Resources,Basic Materials
+63,TKAG.DE,Mineral Resources,Basic Materials
+64,TUI1n.DE,Cyclical Consumer Services,Consumer Cyclicals
+65,VDFGn.DE^H02,Telecommunications Services,Technology
+66,VIAG.DE^F00,Utilities,Utilities
+67,VNAn.DE,Real Estate,Real Estate
+68,VOWG.DE,Automobiles & Auto Parts,Consumer Cyclicals
+69,VOWG_p.DE,Automobiles & Auto Parts,Consumer Cyclicals
+70,WDIG.DE^A21,Industrial & Commercial Services,Industrials
