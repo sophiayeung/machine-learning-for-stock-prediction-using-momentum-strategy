@@ -1,2 +1,10 @@
 /Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_0_Test.csv filter=lfs diff=lfs merge=lfs -text
 /Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_0_Train.csv filter=lfs diff=lfs merge=lfs -text
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_1_Test.csv filter=lfs diff=lfs merge=lfs -text
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_2_Test.csv filter=lfs diff=lfs merge=lfs -text
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_3_Test.csv filter=lfs diff=lfs merge=lfs -text
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_4_Train.csv filter=lfs diff=lfs merge=lfs -text
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_1_Train.csv filter=lfs diff=lfs merge=lfs -text
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_2_Train.csv filter=lfs diff=lfs merge=lfs -text
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_3_Train.csv filter=lfs diff=lfs merge=lfs -text
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_4_Test.csv filter=lfs diff=lfs merge=lfs -text
