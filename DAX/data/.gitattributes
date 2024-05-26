@@ -1,0 +1,2 @@
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_0_Test.csv filter=lfs diff=lfs merge=lfs -text
+/Users/sophiayeung/a/stock-prediction-momentum-strategy/DAX/data/Set_0_Train.csv filter=lfs diff=lfs merge=lfs -text
