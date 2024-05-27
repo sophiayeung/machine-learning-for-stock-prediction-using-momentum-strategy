@@ -25,9 +25,6 @@
     - [Dependencies](#Dependencies)
     - [Setup](#Setup)
 - [Reproducing results](#Reproducing-results)
-    - [Training code](#Training-code)
-    - [Evaluation code](#Evaluation-code)
-    - [Pretrained models](#Pretrained-models)
 - [Results](#Results)
 - [Project structure](-Project-structure)
 
@@ -53,24 +50,31 @@ I used Python 3.9 for the study.
 `conda env create -f thesis.yml
 source thesis-env/bin/activate`
 
+or 
+`python -m venv thesis-env
+source thesis-env/bin/activate`
+
 4. Install requirements
-- matplotlib
-- numpy
-- pandas
-- sklearn
-- KerasTuner
-- keras
-- datetime
+
+`pip install --upgrade pip
+pip install -r requirements.txt
+   `
 
 ## Reproducing results
-* Data Preparation: Due to the large size of dataset, the data for SP500 is not uploaded. Run the 2. Data Collection.ipynb to output the data to \SP500\data. 
+
+* Data Preparation: Due to the large size of dataset, the data for SP500 is not uploaded. Run the 2. Data Collection.ipynb to output the data frin raw_data to \SP500\data. 
 * Model Training: The models and data are stored separately in DAX and SP500 folder to avoid mixing up the result. Run the machine learning models with .ipynb file in DAX and SP500 folder directly after data prepation.
-* Evaluation: Run the 8.Performance testing.ipybn to produce the analysis. 
+* Evaluation: Run the 8.Performance testing.ipybn to produce the analysis. This script analyses the experimental results of five datasets, which corresponds to the section 4 in thesis.
 
 
 ## Results
+Section 4 in thesis discusses the main experiment results which are generated from 8.performance_test.ipynb. The ipynb is structured as follow: 
 
-Does a repository contain a table/plot of main results and a script to reproduce those results?
+1. Functions: contain functions that are used for further analysis
+
+2. Accuracy Check: import the data and check the accuracy (corresponds to section 4.1.1 Model Accuracy in thesis) 
+
+3. Financial Performance: calcualte the return and risk-retrun characteristics (correponds to section 4.2 Financial Performance in thesis)
 
 ## Project structure
 
@@ -83,14 +87,18 @@ Does a repository contain a table/plot of main results and a script to reproduce
 ├── thesis.yml                                      -- required libraries in yml format
 ├── reqirements.txt                                 -- required libraries in txt format
 ├── raw_data                                        -- unprocessed data from refinitiv
-├── 1. data_preparation.ipynb                      -- preparing datasets
-├── data_preparation.ipynb                      -- preparing datasets
+├── 1. data_collection.ipynb                        -- collect data using refinitiv API
+├── 2. data_preparation.ipynb                       -- preparing datasets
 └── DAX
-    ├── 3_RF                                        -- random forest model
-      ├── rf_pred                                   -- contain predict
-      ├── 3. Radom Forest.ipynb
-    ├── data_preparation.ipynb                      -- preparing datasets
-    ├── model_tuning.ipynb                          -- tuning functions
-    └── run_experiment.ipynb                        -- run experiments 
-    └── plots                                       -- plotting functions                 
+  ├── 3_RF                                          
+      ├── rf_pred                                   -- prediction from random forest
+      ├── 3. Random Forest.ipynb                    -- random forest model
+  ├── 4_FNN                                         -- feedforward NN model and prediction
+  ├── 5_LSTM                                        -- LSTM model and prediction
+  ├── 6_Transformer                                 -- transform model and and prediction
+  ├── 7_TCN                                         -- TCN model and prediction
+  ├── 8_performance
+      ├── 8. performance_testing.ipynb              -- anlaysis experiment results          └── SP500                                           -- contain models and result analysis
+     
+
 ```
