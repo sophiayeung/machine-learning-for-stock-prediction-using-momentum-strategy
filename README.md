@@ -21,7 +21,7 @@
 
 ## Table of Content!
 - [Summary](#summary)
-- <>[Working with the repo](#Working-with-the-repo)
+- [Working with the repo](#Working-with-the-repo)
     - [Dependencies](#Dependencies)
     - [Setup](#Setup)
 - [Reproducing results](#Reproducing-results)
