@@ -1,4 +1,4 @@
-<img width="829" alt="DAX_return_performance" src="https://github.com/sophiayeung/machine-learning-for-stock-prediction-using-momentum-strategy/assets/110398276/f25937a4-65d4-452c-9884-3226c1dfcd1c"># Machine learning for stock prediction using momentum strategy
+# Machine learning for stock prediction using momentum strategy
 
 **Type:** Master's Thesis 
 
@@ -15,10 +15,9 @@
 ![DAXaccuracy](https://github.com/sophiayeung/machine-learning-for-stock-prediction-using-momentum-strategy/assets/110398276/76cd2779-825a-42d6-8bc0-881375e3c50d)
 
 **Financial Performance**
-
-
-[Uploading DAX_return_performance.png…]()
 <img width="839" alt="SP500_return_performance" src="https://github.com/sophiayeung/machine-learning-for-stock-prediction-using-momentum-strategy/assets/110398276/8229e33e-a0ba-4bd9-86d2-8c33d5b8363b">
+<img width="829" alt="DAX_return_performance" src="https://github.com/sophiayeung/machine-learning-for-stock-prediction-using-momentum-strategy/assets/110398276/f25937a4-65d4-452c-9884-3226c1dfcd1c">
+
 
 ## Table of Content!
 - [Summary](#summary)
@@ -45,39 +44,29 @@ Forecasting stock prices are challenging in finance due to the inherent noise in
 
 ### Dependencies
 
-Which Python version is required? 
-
-Does a repository have information on dependencies or instructions on how to set up the environment?
+I used Python 3.9 for the study.
 
 ### Setup
 
-
 1. Clone this repository
+2. Create an virtual environment (suggest using conda) and activate it
+`conda env create -f thesis.yml
+source thesis-env/bin/activate`
 
-2. Create an virtual environment and activate it
-
-3. Install requirements
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
+4. Install requirements
+- matplotlib
+- numpy
+- pandas
+- sklearn
+- KerasTuner
+- keras
+- datetime
 
 ## Reproducing results
-* Due to the large size of 
-* The models and data are stored separately in DAX and SP500 folder to avoid mixing up the result. Run the machine learning models with .ipynb file in DAX and SP500 folder directly.
-* Run the 
+* Data Preparation: Due to the large size of dataset, the data for SP500 is not uploaded. Run the 2. Data Collection.ipynb to output the data to \SP500\data. 
+* Model Training: The models and data are stored separately in DAX and SP500 folder to avoid mixing up the result. Run the machine learning models with .ipynb file in DAX and SP500 folder directly after data prepation.
+* Evaluation: Run the 8.Performance testing.ipybn to produce the analysis. 
 
-### Training code
-
-Does a repository contain a way to train/fit the model(s) described in the paper?
-
-### Evaluation code
-
-Does a repository contain a script to calculate the performance of the trained model(s) or run experiments on models?
-
-### Pretrained models
-
-Does a repository provide free access to pretrained model weights?
 
 ## Results
 
@@ -85,15 +74,21 @@ Does a repository contain a table/plot of main results and a script to reproduce
 
 ## Project structure
 
-(Here is an example from SMART_HOME_N_ENERGY, [Appliance Level Load Prediction](https://github.com/Humboldt-WI/dissertations/tree/main/SMART_HOME_N_ENERGY/Appliance%20Level%20Load%20Prediction) dissertation)
-
 ```bash
 ├── README.md
-├── requirements.txt                                -- required libraries
-├── data                                            -- stores csv file 
-├── plots                                           -- stores image files
-└── src
-    ├── prepare_source_data.ipynb                   -- preprocesses data
+├── paper
+  ├── master_thesis_WingShan_Yeung.pdf              -- master Thesis in pdf format
+  ├── master_thesis_WingShan_Yeung.tex              -- master Thesis in Latex format
+  ├── references_WingShan_Yeung.bib                 -- references in bibtex format
+├── thesis.yml                                      -- required libraries in yml format
+├── reqirements.txt                                 -- required libraries in txt format
+├── raw_data                                        -- unprocessed data from refinitiv
+├── 1. data_preparation.ipynb                      -- preparing datasets
+├── data_preparation.ipynb                      -- preparing datasets
+└── DAX
+    ├── 3_RF                                        -- random forest model
+      ├── rf_pred                                   -- contain predict
+      ├── 3. Radom Forest.ipynb
     ├── data_preparation.ipynb                      -- preparing datasets
     ├── model_tuning.ipynb                          -- tuning functions
     └── run_experiment.ipynb                        -- run experiments 
