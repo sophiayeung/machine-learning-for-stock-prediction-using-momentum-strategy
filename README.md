@@ -99,7 +99,8 @@ Section 4 in thesis discusses the main experiment results which are generated fr
 ├── raw_data                                        -- unprocessed data from refinitiv
 ├── 1. data_collection.ipynb                        -- collect data using refinitiv API
 ├── 2. data_preparation.ipynb                       -- preparing datasets
-└── DAX
+└── SP500                                           -- contain models and result analysis for SP500
+└── DAX                                             -- contain models and result analysis for DAX
   ├── 3_RF                                          
       ├── rf_pred                                   -- prediction from random forest
       ├── 3. Random Forest.ipynb                    -- random forest model
@@ -108,7 +109,7 @@ Section 4 in thesis discusses the main experiment results which are generated fr
   ├── 6_Transformer                                 -- transform model and and prediction
   ├── 7_TCN                                         -- TCN model and prediction
   ├── 8_performance
-      ├── 8. performance_testing.ipynb              -- anlaysis experiment results          └── SP500                                           -- contain models and result analysis
-     
+      ├── 8. performance_testing.ipynb              -- anlaysis experiment results        
+
 
 ```
