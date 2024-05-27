@@ -21,7 +21,7 @@
 
 ## Table of Content!
 - [Summary](#summary)
-- [Working with the repo](#Working-with-the-repo)
+- <>[Working with the repo](#Working-with-the-repo)
     - [Dependencies](#Dependencies)
     - [Setup](#Setup)
 - [Reproducing results](#Reproducing-results)
@@ -35,9 +35,6 @@ Forecasting stock prices are challenging in finance due to the inherent noise in
 
 **Keywords**: neural network, Long Short-Term Memory (LSTM), Temporal Convolutional Network (TCN), transformers, time series stock prediction, momentum strategy (give at least 5 keywords / phrases).
 
-**Full text**: [include a link that points to the full text of your thesis]
-*Remark*: a thesis is about research. We believe in the [open science](https://en.wikipedia.org/wiki/Open_science) paradigm. Research results should be available to the public. Therefore, we expect dissertations to be shared publicly. Preferably, you publish your thesis via the [edoc-server of the Humboldt-Universität zu Berlin](https://edoc-info.hu-berlin.de/de/publizieren/andere). However, other sharing options, which ensure permanent availability, are also possible. <br> Exceptions from the default to share the full text of a thesis require the approval of the thesis supervisor.  
-
 ## Working with the repo
 
 ### Dependencies
@@ -48,18 +45,24 @@ I used Python 3.9 for the study.
 
 1. Clone this repository
 2. Create an virtual environment (suggest using conda) and activate it
-`conda env create -f thesis.yml
-source thesis-env/bin/activate`
-
+```
+conda env create -f thesis.yml
+source thesis-env/bin/activate
+```
 or 
-`python -m venv thesis-env
-source thesis-env/bin/activate`
 
-4. Install requirements
+```
+python -m venv thesis-env
+source thesis-env/bin/activate
+```
 
-`pip install --upgrade pip
+
+3. Install requirements
+```
+pip install --upgrade pip
 pip install -r requirements.txt
-   `
+```
+
 
 ## Reproducing results
 
