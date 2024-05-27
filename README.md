@@ -80,6 +80,7 @@ Section 4 in thesis discusses the main experiment results which are generated fr
 
 3. Financial Performance: calcualte the return and risk-retrun characteristics (correponds to section 4.2 Financial Performance in thesis)
 
+
 ## Project structure
 
 ```bash
