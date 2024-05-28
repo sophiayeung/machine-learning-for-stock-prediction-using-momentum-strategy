@@ -11,7 +11,7 @@
 \usepackage{apalike} 
 \bibliographystyle{apalike}
 
-\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+%\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
 \usepackage{hyperref}       % hyperlinks
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
@@ -31,6 +31,9 @@
 \usepackage{multirow}
 \usepackage{tocloft}
 \linespread{1.25} % 1.5 linespacing in Word
+\renewcommand{\normalsize}{\fontsize{11.5}{11}\selectfont}
+
+
 \begin{document}
 
 %https://texblog.org/2014/05/08/template-for-latex-phd-thesis-title-page/
@@ -60,6 +63,7 @@
     \vspace{1cm}
 %Author's name
     \textbf{Wing Shan Yeung} \par
+    \textbf{Matriculation no.: 622118} \par
     \vspace{4cm}
 %Examiner
     \textbf{First Examiner: Prof. Dr. Stefan Lessmann}\par
@@ -71,7 +75,13 @@
 \end{center}
 \clearpage
 
+\thispagestyle{empty}
 
+\begin{abstract}
+Forecasting stock prices are challenging in finance due to the inherent noise in stock price movements and the non-linear relationship between past performance and future stock prices. This paper aims to compare various state-of-the-art neural network models, including Long Short-Term Memory (LSTM), Temporal Convolutional Network (TCN), and transformers, for stock price prediction using the momentum strategy. The momentum strategy involves buying stocks that have recently outperformed their peers and short-selling stocks that have underperformed. Through comparative analysis across two distinct markets (S\&P500 for US market and DAX for Germany), this study evaluates the effectiveness of different neural network models in forecasting future stock prices using time series data. 
+
+Our study shows all models achieve similar performance by evaluating model accuracy. Moreover, our study validates the effectiveness of the momentum strategy, particularly 130-30 trading strategy, in achieving significant returns in stock prediction tasks which outperform the market portfolios. 
+\end{abstract}
 
 
 \newpage
@@ -92,9 +102,6 @@
 % \citeauthor{}	-> Prints only the name of the authors(s)
 
 
-\begin{abstract}
-Forecasting stock prices are challenging in finance due to the inherent noise in stock price movements and the non-linear relationship between past performance and future stock prices. This paper aims to compare various state-of-the-art neural network models, including Long Short-Term Memory (LSTM), Temporal Convolutional Network (TCN), and transformers, for stock price prediction using the momentum strategy. The momentum strategy involves buying stocks that have recently outperformed their peers and short-selling stocks that have underperformed. Through comparative analysis across two distinct markets (S\&P500 for US market and DAX for Germany), this study evaluates the effectiveness of different neural network models in forecasting future stock prices using time series data. Our study shows all models achieve similar performance by evaluating model accuracy. Moreover, our study validates the effectiveness of the momentum strategy, particularly 130-30 trading strategy, in achieving significant returns in stock prediction tasks which outperform the market portfolios. 
-\end{abstract}
 
 \section{Introduction}
 Predicting stock prices accurately is a notoriously difficult task for investors and researchers in the ever-changing world of financial markets \citep{enke2005use, nti2020systematic}. Data scientists often struggle to understand the complex patterns in data over time, given the high level of noise in the stock price movement. With the evolving technology of machine learning in recent years, there has been increasing attention on its application in predicting stock market performance, as evidence has been established that machine learning techniques are capable of capturing non-linear structure in the financial market data and can effectively identify features within the noisy stock data.
@@ -132,6 +139,8 @@ Under the machine learning category, the time series stock market prediction tec
 Table \ref{table 1 literature summary} categorized the literature by the type of problem and their prediction target. The additional details of the literature, including the dataset used, input variables, included models, evaluation metrics, and the best-performing models, have been summarized in Appendix \ref{appendix:a}.
 
 \begin{table}[h] 
+\small
+
 \begin{center}
 \begin{tabular}{|p{3,5cm}|p{5cm}|p{6cm}|}
 \noalign{\hrule height 1pt} 
@@ -345,6 +354,7 @@ Table \ref{table data summary SP} and \ref{table data summary DAX} below showed 
 
 \begin{table}[!h]
 \begin{center}
+\small
 \begin{tabular}{|c|c|c|c|c|c|}
 \noalign{\hrule height 1pt} 
     \hline
@@ -373,6 +383,7 @@ Table \ref{table data summary SP} and \ref{table data summary DAX} below showed 
 \end{table}
 
 \begin{table}[!h]
+\small
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -406,7 +417,7 @@ We use Python 3.9 entirely for the study. Eikon API (https://pypi.org/project/ei
 \subsection{Generation of training and trading sets}
 Before generating the features, we first split the dataset into five study periods, each comprising non-overlapping trading intervals. Following \cite{fischer2018deep}, each "study period" encompasses a training-trading set, comprising approximately 750 days (equivalent to roughly three years), followed by a trading period spanning 250 days (equivalent to roughly one year). The choice of data split is motivated by having a sufficient amount of training data and allowing non-overlapping data to be used for testing the model (trading set). Training sets are required for in-sample training of machine learning models, and trading sets are out-of-sample data that are used for evaluating performance. We then move the training-trading set forward by 250 days in a sliding window approach, resulting in 5 non-overlapping batches to loop over our entire data set from 2010-2017. As such, for S\&P data, a training set consists of approximately 500*750 = 375,000 rows, while a trading set consists of approximately 500*250 = 12,000. For DAX, we have approximately 30*750 = 22,500 for the training set and 7,500 for the trading set. Figure \ref{fig 1} illustrated the study period and the train-test split methodology. 
 \begin{figure}
-  \includegraphics[width=\linewidth]{Picture on Train test split.png}
+  \includegraphics[width=0.8\linewidth]{Picture on Train test split.png}
   \caption{Study period and train-test split}
   \label{fig 1}
 \end{figure}
@@ -426,7 +437,7 @@ With the standardized return data, we use a rolling window to retrieve the featu
 Feature generation is conducted separately for random forests due to the memory constraints of the model. With the previous vector, random forest treats them as individual input features rather than time series data with sequence. Since random forest cannot directly handle time series data, we create time-lagged features by aggregating returns over different intervals to capture temporal patterns in the data, making it suitable for input into the random forest model. Based on \cite{takeuchi2013applying} and \cite{krauss2017deep}, we use multi-period cumulative returns $R^{m,s}_t$ with lags $m \in \{\{1,2,...20\} \cup \{40,60,...240\}\} $ using the standardized return data. In other words, we first focus on the incremental daily returns of the first 20 days, which is approximately one trading month. Then, we consider the multi-period returns for the subsequent 11 months, each accounting for 20 days of return. In total, there are 31 input variables for random forest. 
 
 \begin{figure}
-  \includegraphics[width=\linewidth]{Creation of feature sequences and corresponding target label.png}
+  \includegraphics[width=0.9\linewidth]{Creation of feature sequences and corresponding target label.png}
   \caption{Creation of feature sequences and corresponding target labels for neural network}
   \label{fig creation feature sequence}
 \end{figure}
@@ -453,6 +464,8 @@ During our training process, we conduct hyperparameter tuning to find suitable p
 
 \begin{table}[!h]
 \centering
+\small
+
 \begin{tabular}{|p{2cm}|p{5cm}|p{8cm}|}
 %\noalign{\hrule height 2.5pt} 
 \noalign{\hrule height 2pt} 
@@ -521,6 +534,8 @@ Random Search (sklearn) with 30 max. trial, 3-fold CV, tuned with every training
 
 \begin{table}[!h]
 \centering
+\small
+
 \begin{tabular}{|p{1.8cm}|p{3.8cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 Model & Parameter & Best Parameter for S\&P500 &  Best Parameter for DAX \\
@@ -574,7 +589,7 @@ Following \cite{fischer2018deep}, we apply a 1-layer LSTM model with a training 
 The hyperparameter tuning for LSTM involves the number of memory cells, learning rate, regularizer, optimizer and batch size. 
 \begin{itemize}
   \item Number of Memory Cells: defines the complexity and capacity of the LSTM model. Tuning this parameter allows us to find the optimal balance between model complexity and generalization capability. 
-  \item Learning Rate: governs how quickly the network updates its parameters during training. A higher learning rate accelerates the convergence of the optimization process, but it may also result in overshooting the optimal solution or getting stuck in local minima. Conversely, a lower learning rate ensures smoother optimization but may lead to slower convergence or getting trapped in saddle points. The minimum amount of learning rate is le-6, which is motivated by the learning rate used in \cite{krauss2017deep}.
+  \item Learning Rate: governs how quickly the network updates its parameters during training. A higher learning rate accelerates the convergence of the optimization process, but it may also result in overshooting the optimal solution or getting stuck in local minima. The minimum amount of learning rate is le-6, which is motivated by the learning rate used in \cite{krauss2017deep}.
   \item Regularizer: prevents overfitting by penalizing the model's complexity, especially when we have a large number of epochs (up to 1000 epochs) for training. By tuning the regularizer parameter, we control the magnitude of the penalty imposed on the model's weights to avoid overfitting and allow the model to learn more robust and generalizable patterns.
   \item Optimizer: updates the model's parameters based on the computed gradients during training. By tuning the optimizer parameter, we aim to find the most suitable optimization algorithm that accelerates convergence and improves the model's performance.
   \item Batch Size: determines the number of samples processed by the model in each training iteration. Tuning the batch size affects the stability of the training process, the memory requirements, and the computational efficiency. A smaller batch size provides more frequent updates to the model's parameters and introduces more stochasticity, while a larger batch size offers smoother optimization but requires more memory. We offer different batch sizes for the model to select, starting from 16 and up to 128. 
@@ -593,7 +608,7 @@ We apply the TCN model with the training duration of 1000 epochs and an early st
 \end{itemize}
 The hyperparameter tuning for TCN involves the number of filters, learning rate, regularizer, optimizer and batch size. 
 \begin{itemize}
-  \item Number of Filters: determines how many different features or patterns the layer can detect in the input data. Each filter learns to detect a specific feature or pattern by convolving across the input data using its weights. The number of filters is similar to the units for LSTM, so the input grid is the same as the number of memory cell used in LSTM. 
+  \item Number of Filters: determines how many different features or patterns the layer can detect in the input data. The number of filters is similar to the units for LSTM, so the input grid is the same as the number of memory cell used in LSTM. 
   \item Kernel Size: controls the spatial area/volume considered in the convolutional ops. As suggested by the Keras library, good values are usually between 2 and 8. 
 \end{itemize}
 
@@ -677,13 +692,16 @@ In this section, we present the results of different models in terms of model ev
 The employed model's ability to accurately predict whether a stock is going to outperform the cross-sectional median is the basis for forming a profitable long-short portfolio. Therefore, we first evaluate the models in terms of their accuracy, which is calculated as $\frac{TP + TN}{TP + FP + FN + TN}$. The accuracy of all models remains relatively consistent, slightly exceeding 50\%. The complete summary of prediction accuracy for long-short portfolio per model with different portfolio sizes is shown in Table \ref{table accuracy SP500} for S\&P 500 and Table \ref{table accuracy DAX} for DAX. 
 
 \begin{figure}[!ht]
+
   \centering
-  \includegraphics[width=\linewidth]{S&Paccuracy.png}
+  \includegraphics[width=0.7\linewidth]{S&Paccuracy.png}
   \caption{Prediction accuracy for different portfolio sizes for S\&P500}
   \label{accuracy SP500}
 \end{figure}
 \begin{table}[!ht]
 \centering
+\small
+
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \noalign{\hrule height 2.5pt} 
 Model & k=5 &  k=10 & k=50 &  k=100 & k=150 & k=200 \\
@@ -700,19 +718,19 @@ RF & 0.517 & 0.511 & 0.502 & 0.501 & 0.501 & 0.501 \\
 \end{table}
 
 
-
-
 For the S\&P 500 index, LSTM consistently outperforms other models across various portfolio sizes, ranging from \(k=10\) to \(k=200\), except for the \(k=5\) scenario where random forest performs the best with an accuracy of 51.7\%. However, the Transformer model exhibits the lowest accuracy among all models, ranging from 50.1\% at \(k=5\) to 50.3\% at \(k=10\). TCN's performance falls in the middle, with accuracies ranging from 50.8\% at \(k=5\) to 50.3\% for larger values of \(k\) (\(k \in \{50, 100, 150, 200\}\)). FNN also struggles to predict the stock performance accurately for the S\&P 500, with the accuracy ranging from 50.5\% a k=5 to 50.2\% at (\(k \in \{100, 150, 200\}\)). Overall, there is a trend of decreasing accuracy with larger values of k, indicating that as the portfolio size increases, the models struggle to maintain their predictive performance.
 
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=\linewidth]{DAXaccuracy.png}
+  \includegraphics[width=0.7\linewidth]{DAXaccuracy.png}
   \caption{Prediction accuracy for different portfolio sizes for DAX}
   \label{accuracy DAX}
 \end{figure}
 \begin{table}[!ht]
 \begin{center}
+\small
+
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \noalign{\hrule height 2.5pt} 
 Model & k=2 &  k=4 & k=5 &  k=8 & k=10 & k=15 \\
@@ -775,15 +793,17 @@ For the United States, we consider the average interest rate for U.S. 10-year Tr
 
 \begin{figure}[!ht]
     \centering
-    \begin{subfigure}[b]{\textwidth} 
+    \begin{subfigure}[b]{0.7\textwidth} 
+      \centering
       \includegraphics[width=\textwidth]{us_treasury_yield.png}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{\textwidth} 
+    \begin{subfigure}[b]{0.7\textwidth} 
+      \centering
       \includegraphics[width=\textwidth]{germany_bond_yield.png}
     \end{subfigure}
-    \caption{Upper: Market Yield on U.S. treasury securities at 10-Year Constant Maturity, quoted on an investment basis. Bottom: Interest Rate for 10-year Government Bond Yields for Germany. Source from St. Louis Fed.}
-    \label{fig:risk free}
+    \caption{Left: Market Yield on U.S. treasury securities at 10-Year Constant Maturity, quoted on an investment basis. Right: Interest Rate for 10-year Government Bond Yields for Germany. Source from St. Louis Fed.}
+    \label{fig:risk_free}
 \end{figure}
 
 \paragraph{S\&P 500 Sharpe Ratio}
